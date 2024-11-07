@@ -1,4 +1,4 @@
-// Función para mostrar los descendientes de un vértice
+// FunciÃ³n para mostrar los descendientes de un vÃ©rtice
 
 Algoritmo Arboles_y_Grafos
 	Definir opc Como Cadena
@@ -11,16 +11,18 @@ Algoritmo Arboles_y_Grafos
 	// Conjuntos y matrices para verificar la arquitectura del arbol
 	
 	Definir contador, n, i, k, vertice Como Entero
-	Definir hayRaiz Como Lógico // Almacena el índice del vértice que es la raíz del árbol.
+	// Variable cuantificadoras para los bucles del algoritmo
+
+	Definir hayRaiz Como LÃ³gico // Almacena el Ã­ndice del vÃ©rtice que es la raÃ­z del Ã¡rbol.
 	
 	Repetir
 		Limpiar Pantalla
 		Escribir 'Escoje una opcion.........'
 		Escribir '______________________'
-		Escribir '(1)   Arboles'
-		Escribir '(2)   Cerrar programa'
+		Escribir '(1)Â  Â Arboles'
+		Escribir '(2)Â  Â Cerrar programa'
 		Leer opc
-		Según opc Hacer
+		SegÃºn opc Hacer
 			'1':
 				Limpiar Pantalla
 				// Ingresar la arquitectura del grafo
@@ -34,7 +36,7 @@ Algoritmo Arboles_y_Grafos
 				FinPara
 				Limpiar Pantalla
 				Para i<-1 Hasta n Hacer
-					Escribir 'Ingrese el nodo padre de ', i, ' (o -1 si es la raíz):' 
+					Escribir 'Ingrese el nodo padre de ', i, ' (o -1 si es la raÃ­z):' 
 					Leer NodoRaiz[i]
 					Si NodoRaiz[i]=-1 & contador<1 Entonces
 						contador<-contador+1
@@ -46,14 +48,14 @@ Algoritmo Arboles_y_Grafos
 						Vertices[NodoRaiz[i]] <- 1
 					FinSi
 				FinPara
-				Repetir // Marca como vértice interno
+				Repetir // Marca como vÃ©rtice interno
 					Si hayRaiz=Falso Entonces
 						Limpiar Pantalla
-						Escribir 'No se definió solo una raíz. El árbol es inválido.'
+						Escribir 'No se definiÃ³ solo una raÃ­z. El Ã¡rbol es invÃ¡lido.'
 						Esperar Tecla
 						Limpiar Pantalla
 						Para i<-1 Hasta n Hacer
-							Escribir 'Ingrese el nodo padre de ', i, ' (o -1 si es la raíz):'
+							Escribir 'Ingrese el nodo padre de ', i, ' (o -1 si es la raÃ­z):'
 							Leer NodoRaiz[i]
 							Si NodoRaiz[i]=-1 & contador<1 Entonces
 								contador<-contador+1
@@ -65,69 +67,69 @@ Algoritmo Arboles_y_Grafos
 								Vertices[NodoRaiz[i]] <- 1
 							FinSi
 						FinPara
-					FinSi // Marca como vértice interno
+					FinSi // Marca como vÃ©rtice interno
 				Hasta Que hayRaiz=Verdadero
 				Repetir
 					Limpiar Pantalla
-					Escribir 'Submenú Árboles'
-					Escribir 'a. Mostrar la raíz del árbol'
-					Escribir 'b. Padre de un vértice específico'
-					Escribir 'c. Hijos de un vértice específico'
-					Escribir 'd. Hermanos de un vértice específico'
-					Escribir 'e. Antecesores de un vértice específico'
-					Escribir 'f. Descendientes de un vértice específico'
-					Escribir 'g. Vértices internos'
+					Escribir 'SubmenÃº Ãrboles'
+					Escribir 'a. Mostrar la raÃ­z del Ã¡rbol'
+					Escribir 'b. Padre de un vÃ©rtice especÃ­fico'
+					Escribir 'c. Hijos de un vÃ©rtice especÃ­fico'
+					Escribir 'd. Hermanos de un vÃ©rtice especÃ­fico'
+					Escribir 'e. Antecesores de un vÃ©rtice especÃ­fico'
+					Escribir 'f. Descendientes de un vÃ©rtice especÃ­fico'
+					Escribir 'g. VÃ©rtices internos'
 					Escribir 'h. Hojas'
-					Escribir 'i. Subárbol con raíz en un vértice específico'
-					Escribir 'j. Volver al menú principal'
+					Escribir 'i. SubÃ¡rbol con raÃ­z en un vÃ©rtice especÃ­fico'
+					Escribir 'j. Volver al menÃº principal'
 					Leer opcArbol
-					Según opcArbol Hacer
+					SegÃºn opcArbol Hacer
 						'a':
 							Limpiar Pantalla
-							Escribir 'La raíz del árbol es: ', root
+							Escribir 'La raÃ­z del Ã¡rbol es: ', root
 							Esperar Tecla
 						'b':
 							Limpiar Pantalla
-							Escribir 'Ingrese el vértice para encontrar su padre:'
+							Escribir 'Ingrese el vÃ©rtice para encontrar su padre:'
 							Leer vertice
 							Si NodoRaiz[vertice]<>-1 Entonces
-								Escribir 'El padre del vértice ', vertice, ' es: ', NodoRaiz[vertice]
+								Escribir 'El padre del vÃ©rtice ', vertice, ' es: ', NodoRaiz[vertice]
 							SiNo
-								Escribir 'El vértice ', vertice, ' es la raíz y no tiene padre.'
+								Escribir 'El vÃ©rtice ', vertice, ' es la raÃ­z y no tiene padre.'
 							FinSi
 							Esperar Tecla
 						'c':
 							Limpiar Pantalla
-							Escribir 'Ingrese el vértice para encontrar sus hijos:'
+							Escribir 'Ingrese el vÃ©rtice para encontrar sus hijos:'
 							Leer vertice
 							Si CantidadHijos[vertice]>0 Entonces
-								Escribir 'Los hijos del vértice ', vertice, ' son:'
+								Escribir 'Los hijos del vÃ©rtice ', vertice, ' son:'
 								Para i<-1 Hasta CantidadHijos[vertice] Hacer
 									Escribir Hijos[vertice,i]
 								FinPara
 							SiNo
-								Escribir 'El vértice ', vertice, ' no tiene hijos.'
+								Escribir 'El vÃ©rtice ', vertice, ' no tiene hijos.'
 							FinSi
 							Esperar Tecla
 						'd':
 							Limpiar Pantalla
-							Escribir 'Ingrese el vértice para encontrar sus hermanos:'
+							Escribir 'Ingrese el vÃ©rtice para encontrar sus hermanos:'
 							Leer vertice
 							padre <- NodoRaiz[vertice]
 							Si padre<>-1 Entonces
-								Escribir 'Los hermanos del vértice ', vertice, ' son:'
+								Escribir 'Los hermanos del vÃ©rtice ', vertice, ' son:'
 								Para i<-1 Hasta CantidadHijos[padre] Hacer
 									Si Hijos[padre,i]<>vertice Entonces
 										Escribir Hijos[padre,i]
 									FinSi
 								FinPara
 							SiNo
-								Escribir 'El vértice ', vertice, ' es la raíz y no tiene hermanos.'
+								Escribir 'El vÃ©rtice ', vertice, ' es la raÃ­z y no tiene hermanos.'
 							FinSi
 							Esperar Tecla
 						'e':
 							Limpiar Pantalla
-							Escribir 'Ingrese el vértice para encontrar sus antecesores:'
+							Escribir 'Ingrese el vÃ©rtice para encontrar sus antecesores:'
 							Leer vertice
 							Mientras vertice<>-1 Hacer
 								vertice <- NodoRaiz[vertice]
@@ -138,7 +140,7 @@ Algoritmo Arboles_y_Grafos
 							Esperar Tecla
 						'f':
 							Limpiar Pantalla
-							Escribir 'Ingrese el vértice para encontrar sus descendientes:'
+							Escribir 'Ingrese el vÃ©rtice para encontrar sus descendientes:'
 							Leer vertice
 							Escribir 'Los descendientes de ', vertice, ' son:'
 							Para i<-1 Hasta n Con Paso 1 Hacer
@@ -149,7 +151,7 @@ Algoritmo Arboles_y_Grafos
 							Esperar Tecla
 						'g':
 							Limpiar Pantalla
-							Escribir 'Los vértices internos del árbol son:'
+							Escribir 'Los vÃ©rtices internos del Ã¡rbol son:'
 							Para i<-1 Hasta n Hacer
 								Si Vertices[i]=1 Entonces
 									Escribir i
@@ -158,7 +160,7 @@ Algoritmo Arboles_y_Grafos
 							Esperar Tecla
 						'h':
 							Limpiar Pantalla
-							Escribir 'Las hojas del árbol son:'
+							Escribir 'Las hojas del Ã¡rbol son:'
 							Para i<-1 Hasta n Hacer
 								Si Vertices[i]=0 Entonces
 									Escribir i
@@ -167,9 +169,9 @@ Algoritmo Arboles_y_Grafos
 							Esperar Tecla
 						'i':
 							Limpiar Pantalla
-							Escribir 'Ingrese el vértice raíz del subárbol:'
+							Escribir 'Ingrese el vÃ©rtice raÃ­z del subÃ¡rbol:'
 							Leer vertice
-							Escribir 'El subárbol con raíz en ', vertice, ' es:'
+							Escribir 'El subÃ¡rbol con raÃ­z en ', vertice, ' es:'
 							Para i<-1 Hasta n Con Paso 1 Hacer
 								Para k<-1 Hasta CantidadHijos[i] Con Paso 1 Hacer
 									Escribir Hijos[i,k];
@@ -178,20 +180,20 @@ Algoritmo Arboles_y_Grafos
 							Esperar Tecla
 						'j':
 							Limpiar Pantalla
-							Escribir 'Volviendo al menú principal...'
+							Escribir 'Volviendo al menÃº principal...'
 						De Otro Modo:
-							Escribir 'Opción inválida.'
+							Escribir 'OpciÃ³n invÃ¡lida.'
 							Esperar Tecla
-					FinSegún
+					FinSegÃºn
 				Hasta Que opcArbol='j'
 			'2':
 				Limpiar Pantalla
 				Escribir 'Adios'
 			De Otro Modo:
 				Limpiar Pantalla
-				Escribir opc, ' Esta no es una opción correcta, por favor intentalo de nuevo'
+				Escribir opc, ' Esta no es una opciÃ³n correcta, por favor intentalo de nuevo'
 				Escribir 'Pulsa una tecla para continuar...'
 				Esperar Tecla
-		FinSegún
+		FinSegÃºn
 	Hasta Que (opc=='2')
 FinAlgoritmo
