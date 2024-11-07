@@ -143,9 +143,9 @@ Algoritmo Arboles_y_Grafos
 							Escribir 'Ingrese el vértice para encontrar sus descendientes:'
 							Leer vertice
 							Escribir 'Los descendientes de ', vertice, ' son:'
-							Para i<-1 Hasta n Con Paso 1 Hacer
+							Para i<-vertice Hasta n Con Paso 1 Hacer
 								Para k<-1 Hasta CantidadHijos[i] Con Paso 1 Hacer
-									Escribir Hijos[i,k];
+										Escribir Hijos[i,k];
 								FinPara
 							FinPara
 							Esperar Tecla
@@ -172,7 +172,7 @@ Algoritmo Arboles_y_Grafos
 							Escribir 'Ingrese el vértice raíz del subárbol:'
 							Leer vertice
 							Escribir 'El subárbol con raíz en ', vertice, ' es:'
-							Para i<-1 Hasta n Con Paso 1 Hacer
+							Para i<-vertice Hasta n Con Paso 1 Hacer
 								Para k<-1 Hasta CantidadHijos[i] Con Paso 1 Hacer
 									Escribir Hijos[i,k];
 								FinPara
