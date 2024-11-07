@@ -6,14 +6,14 @@ Algoritmo Arboles_y_Grafos
 	
 	Definir padre, root Como Entero // Almacenan el padre y la raiz de un arbol
 	
-	Definir NodoRaiz, Hijos, Vertices, CantidadHijos Como Entero
-	Dimensionar NodoRaiz(100), Hijos(100,100), Vertices(100), CantidadHijos(100);
+	Definir NodoRaiz, Hijos, Nodos, CantidadHijos Como Entero
+	Dimensionar NodoRaiz(100), Hijos(100,100), Nodos(100), CantidadHijos(100);
 	// Conjuntos y matrices para verificar la arquitectura del arbol
 	
-	Definir contador, n, i, k, vertice Como Entero
+	Definir contador, n, i, k, nodo Como Entero
 	// Variable cuantificadoras para los bucles del algoritmo
 
-	Definir hayRaiz Como Lógico // Identifica el índice del vértice que es la raíz del árbol.
+	Definir hayRaiz Como Lógico // Identifica el índice del nodo que es la raíz del árbol.
 	
 	Repetir
 		Limpiar Pantalla
@@ -31,7 +31,7 @@ Algoritmo Arboles_y_Grafos
 				// Inicializar variables
 				Para i<-1 Hasta n Hacer
 					CantidadHijos[i] <- 0
-					Vertices[i] <- 0
+					Nodos[i] <- 0
 					NodoRaiz[i] <- 0 // 0 indica que no tiene padre
 				FinPara
 				Limpiar Pantalla
@@ -45,7 +45,7 @@ Algoritmo Arboles_y_Grafos
 					SiNo
 						CantidadHijos[NodoRaiz[i]] <- CantidadHijos[NodoRaiz[i]]+1
 						Hijos[NodoRaiz[i],CantidadHijos[NodoRaiz[i]]]<-i
-						Vertices[NodoRaiz[i]] <- 1
+						Nodos[NodoRaiz[i]] <- 1
 					FinSi
 				FinPara
 				Repetir // Marca como vértice interno
@@ -64,7 +64,7 @@ Algoritmo Arboles_y_Grafos
 							SiNo
 								CantidadHijos[NodoRaiz[i]] <- CantidadHijos[NodoRaiz[i]]+1
 								Hijos[NodoRaiz[i],CantidadHijos[NodoRaiz[i]]]<-i
-								Vertices[NodoRaiz[i]] <- 1
+								Nodos[NodoRaiz[i]] <- 1
 							FinSi
 						FinPara
 					FinSi // Marca como vértice interno
@@ -91,59 +91,59 @@ Algoritmo Arboles_y_Grafos
 						'b':
 							Limpiar Pantalla
 							Escribir 'Ingrese el vértice para encontrar su padre:'
-							Leer vertice
-							Si NodoRaiz[vertice]<>-1 Entonces
-								Escribir 'El padre del vértice ', vertice, ' es: ', NodoRaiz[vertice]
+							Leer nodo
+							Si NodoRaiz[nodo]<>-1 Entonces
+								Escribir 'El padre del vértice ', nodo, ' es: ', NodoRaiz[nodo]
 							SiNo
-								Escribir 'El vértice ', vertice, ' es la raíz y no tiene padre.'
+								Escribir 'El vértice ', nodo, ' es la raíz y no tiene padre.'
 							FinSi
 							Esperar Tecla
 						'c':
 							Limpiar Pantalla
 							Escribir 'Ingrese el vértice para encontrar sus hijos:'
-							Leer vertice
-							Si CantidadHijos[vertice]>0 Entonces
-								Escribir 'Los hijos del vértice ', vertice, ' son:'
-								Para i<-1 Hasta CantidadHijos[vertice] Hacer
-									Escribir Hijos[vertice,i]
+							Leer nodo
+							Si CantidadHijos[nodo]>0 Entonces
+								Escribir 'Los hijos del vértice ', nodo, ' son:'
+								Para i<-1 Hasta CantidadHijos[nodo] Hacer
+									Escribir Hijos[nodo,i]
 								FinPara
 							SiNo
-								Escribir 'El vértice ', vertice, ' no tiene hijos.'
+								Escribir 'El vértice ', nodo, ' no tiene hijos.'
 							FinSi
 							Esperar Tecla
 						'd':
 							Limpiar Pantalla
 							Escribir 'Ingrese el vértice para encontrar sus hermanos:'
-							Leer vertice
-							padre <- NodoRaiz[vertice]
+							Leer nodo
+							padre <- NodoRaiz[nodo]
 							Si padre<>-1 Entonces
-								Escribir 'Los hermanos del vértice ', vertice, ' son:'
+								Escribir 'Los hermanos del vértice ', nodo, ' son:'
 								Para i<-1 Hasta CantidadHijos[padre] Hacer
-									Si Hijos[padre,i]<>vertice Entonces
+									Si Hijos[padre,i]<>nodo Entonces
 										Escribir Hijos[padre,i]
 									FinSi
 								FinPara
 							SiNo
-								Escribir 'El vértice ', vertice, ' es la raíz y no tiene hermanos.'
+								Escribir 'El vértice ', nodo, ' es la raíz y no tiene hermanos.'
 							FinSi
 							Esperar Tecla
 						'e':
 							Limpiar Pantalla
 							Escribir 'Ingrese el vértice para encontrar sus antecesores:'
-							Leer vertice
-							Mientras vertice<>-1 Hacer
-								vertice <- NodoRaiz[vertice]
-								Si vertice<>-1 Entonces
-									Escribir vertice
+							Leer nodo
+							Mientras nodo<>-1 Hacer
+								nodo <- NodoRaiz[nodo]
+								Si nodo<>-1 Entonces
+									Escribir nodo
 								FinSi
 							FinMientras
 							Esperar Tecla
 						'f':
 							Limpiar Pantalla
 							Escribir 'Ingrese el vértice para encontrar sus descendientes:'
-							Leer vertice
-							Escribir 'Los descendientes de ', vertice, ' son:'
-							Para i<-vertice Hasta n Con Paso 1 Hacer
+							Leer nodo
+							Escribir 'Los descendientes de ', nodo, ' son:'
+							Para i<-nodo Hasta n Con Paso 1 Hacer
 								Para k<-1 Hasta CantidadHijos[i] Con Paso 1 Hacer
 										Escribir Hijos[i,k];
 								FinPara
@@ -153,7 +153,7 @@ Algoritmo Arboles_y_Grafos
 							Limpiar Pantalla
 							Escribir 'Los vértices internos del árbol son:'
 							Para i<-1 Hasta n Hacer
-								Si Vertices[i]=1 Entonces
+								Si Nodos[i]=1 Entonces
 									Escribir i
 								FinSi
 							FinPara
@@ -162,7 +162,7 @@ Algoritmo Arboles_y_Grafos
 							Limpiar Pantalla
 							Escribir 'Las hojas del árbol son:'
 							Para i<-1 Hasta n Hacer
-								Si Vertices[i]=0 Entonces
+								Si Nodos[i]=0 Entonces
 									Escribir i
 								FinSi
 							FinPara
@@ -170,9 +170,9 @@ Algoritmo Arboles_y_Grafos
 						'i':
 							Limpiar Pantalla
 							Escribir 'Ingrese el vértice raíz del subárbol:'
-							Leer vertice
-							Escribir 'El subárbol con raíz en ', vertice, ' es:'
-							Para i<-vertice Hasta n Con Paso 1 Hacer
+							Leer nodo
+							Escribir 'El subárbol con raíz en ', nodo, ' es:'
+							Para i<-nodo Hasta n Con Paso 1 Hacer
 								Para k<-1 Hasta CantidadHijos[i] Con Paso 1 Hacer
 									Escribir Hijos[i,k];
 								FinPara
@@ -191,7 +191,7 @@ Algoritmo Arboles_y_Grafos
 				Escribir 'Adios'
 			De Otro Modo:
 				Limpiar Pantalla
-				Escribir opc, ' Esta no es una opción correcta, por favor intentalo de nuevo'
+				Escribir opc, ' No es una opción correcta, por favor intentalo de nuevo'
 				Escribir 'Pulsa una tecla para continuar...'
 				Esperar Tecla
 		FinSegún
