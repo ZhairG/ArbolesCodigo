@@ -4,7 +4,7 @@ Algoritmo Arboles_y_Grafos
 	Definir opc Como Cadena
 	Definir opcArbol, opcGrafo Como Cadena
 	
-	Definir padre, root Como Entero // Obtiene el padre o la raiz de un arbol
+	Definir padre, root Como Entero // Almacenan el padre y la raiz de un arbol
 	
 	Definir NodoRaiz, Hijos, Vertices, CantidadHijos Como Entero
 	Dimensionar NodoRaiz(100), Hijos(100,100), Vertices(100), CantidadHijos(100);
@@ -13,7 +13,7 @@ Algoritmo Arboles_y_Grafos
 	Definir contador, n, i, k, vertice Como Entero
 	// Variable cuantificadoras para los bucles del algoritmo
 
-	Definir hayRaiz Como Lógico // Almacena el índice del vértice que es la raíz del árbol.
+	Definir hayRaiz Como Lógico // Identifica el índice del vértice que es la raíz del árbol.
 	
 	Repetir
 		Limpiar Pantalla
